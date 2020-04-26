@@ -19,11 +19,11 @@ data class ExecutionLog(
         @NotBlank
         val content: String = "",
 
-        val reason: String? = "",
+        val reason: String = "",
 
         val genre: String? = "",
 
-        @DateTimeFormat(pattern = "yyy-MM-dd")
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
         val writeData: LocalDate? = null
 )
 

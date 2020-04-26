@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:method="post" th:action="@{/create}" th:object="${CreateForm}">
+        <label>内容</label>
+        <input type="text" th:field="*{content}"><span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br>
+        <label>理由</label>
+        <input type="text" th:field="*{reason}"><br>
+        <label>ジャンル</label>
+        <input type="text" th:field="*{genre}"><br>
+        <label>書いた日</label>
+        <input type="date" th:field="*{writeData}"><br>
+
+        <input type="submit" value="作成">
+    </form>
+</body>
+</html>
