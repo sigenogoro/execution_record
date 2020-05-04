@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 
 
@@ -19,7 +20,7 @@ class ExecutionRecordController(private val logService: LogService) {
     fun index(model: Model): String {
         val executionHistory = logService.findAll()
 
-        model.addAttribute("data", executionHistory)
+        model.addAttribute("datas", executionHistory)
         return "index"
     }
 
@@ -31,11 +32,34 @@ class ExecutionRecordController(private val logService: LogService) {
 
     @PostMapping("/create")
     fun create(@Validated  @ModelAttribute("CreateForm") CreateForm: CreateForm,bindingResult: BindingResult ,executionLog: ExecutionLog, model: Model): String {
-        println(CreateForm.content)
         if(bindingResult.hasErrors()){
             return "new"
         }
         logService.save(executionLog)
+        return "redirect:/"
+    }
+
+    @GetMapping("/edit/{id}")
+    fun edit(@PathVariable id:Long,model: Model): String{
+        val executionEdit = logService.findById(id)
+        model.addAttribute("edida", executionEdit)
+        return "edit"
+    }
+
+    @PostMapping("/update/{id}")
+    fun update(@Validated @ModelAttribute("edida") edita: ExecutionLog, bindingResult: BindingResult ,@PathVariable id:Long, model: Model): String{
+        if(bindingResult.hasErrors()){
+            return "edit"
+        }
+        logService.save(edita.copy(id=id))
+
+        return "redirect:/"
+    }
+
+
+    @PostMapping("/delete/{id}")
+    fun delete(@PathVariable id: Long): String{
+        logService.delete(id)
         return "redirect:/"
     }
 }

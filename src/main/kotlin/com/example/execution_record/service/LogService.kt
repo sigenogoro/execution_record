@@ -11,7 +11,9 @@ class LogService(private val logRepository: LogRepository){
 
     fun findAll() = logRepository.findAll()
 
-    fun delete(executionLog: ExecutionLog) = logRepository.delete(executionLog)
+    fun findById(id: Long) = logRepository.findById(id).orElse(null)
+
+    fun delete(id: Long) = logRepository.deleteById(id)
 
     fun save(executionLog: ExecutionLog) = logRepository.save(executionLog)
 

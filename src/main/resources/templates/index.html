@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="base">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <p th:text="${data}"></p>
-    <a th:href="@{/new}">link</a>
+    <div layout:fragment="content">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>content</th>
+                <th>reason</th>
+            </tr>
+            <tr th:each="data: ${datas}">
+                <td th:text="${data.id}"></td>
+                <td th:text="${data.content}"></td>
+                <td th:text="${data.reason}"></td>
+                <td><a class="btn btn-primary" th:href="@{/edit/{id}(id=${data.id})}">edit</a></td>
+                <form th:action="@{/delete/{id}(id=${data.id})}" th:method="POST">
+                    <td><input class="btn btn-primary" type="submit" onclick="check()" value="delete"></td>
+                </form>
+            </tr>
+
+        </table>
+        <a th:href="@{/new}">link</a>
+    </div>
+
+
+
+
+
+
+    <script>
+        function check(){
+            if(window.confirm("本当に削除してよろしいでしょうか？")){
+                return true
+            }else{
+                return false
+            }
+        }
+    </script>
 </body>
 </html>

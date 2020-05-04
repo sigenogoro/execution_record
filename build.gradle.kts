@@ -27,6 +27,7 @@ dependencies {
 	implementation("org.apache.tomcat.embed:tomcat-embed-el")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
