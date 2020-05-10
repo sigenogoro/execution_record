@@ -10,7 +10,6 @@
     <div layout:fragment="content">
         <table>
             <tr>
-                <th>Id</th>
                 <th>content</th>
                 <th>reason</th>
                 <th><select id="genre_name" name="genre_name">
@@ -21,7 +20,6 @@
                 </th>
             </tr>
             <tr th:each="data: ${datas}">
-                <td th:text="${data.id}"></td>
                 <td th:text="${data.content}"></td>
                 <td th:text="${data.reason}"></td>
                 <td><a class="btn btn-primary" th:href="@{/edit/{id}(id=${data.id})}">edit</a></td>

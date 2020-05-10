@@ -52,10 +52,14 @@ class ExecutionRecordController(private val logService: LogService, private val 
     }
 
     @PostMapping("/genreCreate")
-    fun genreCreate(genreGroup: GenreGroup, model: Model): String {
+    fun genreCreate(@Validated @ModelAttribute("CreateGenreForm") CreateGenreForm: CreateGenreForm,result: BindingResult ,genreGroup: GenreGroup, model: Model): String {
+        if(result.hasErrors()){
+            println("OK")
+            return "newgenre"
+        }
 
-        if(genreService.findByName(genreGroup.name)) {
-            model.addAttribute("CreateGenreForm", CreateGenreForm())
+        if(genreService.validateGenre(genreGroup.name)) {
+            result.rejectValue("name","CreateGenreForm.global.message", "It's already there.")
             return "newgenre"
         }
         genreService.save(genreGroup)

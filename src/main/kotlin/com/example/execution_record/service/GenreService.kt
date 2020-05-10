@@ -17,7 +17,7 @@ class GenreService(private val genreRepository: GenreRepository){
     fun save(genreGroup: GenreGroup) = genreRepository.save(genreGroup)
 
 
-    fun findByName(name: String?) = genreRepository.existsByName(name)
+    fun validateGenre(name: String?) = genreRepository.existsByName(name)
 
 
     fun findById(id: Long) = genreRepository.findById(id)

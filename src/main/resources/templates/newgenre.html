@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,7 +7,8 @@
 <body>
 <form th:method="post" th:action="@{/genreCreate}" th:object="${CreateGenreForm}">
     <label>内容</label>
-    <input type="text" th:field="*{name}"></span><br>
+    <input type="text" th:field="*{name}"><span th:if="${#fields.errors('name')}" th:errors="*{name}"></span>
+    <br>
 
     <input type="submit" value="作成">
 </form>
