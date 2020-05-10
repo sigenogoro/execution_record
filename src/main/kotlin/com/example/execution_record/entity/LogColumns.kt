@@ -21,10 +21,12 @@ data class ExecutionLog(
 
         val reason: String = "",
 
-        val genre: String? = "",
+        @ManyToOne
+        val genre: GenreGroup = GenreGroup(),
 
         @DateTimeFormat(pattern = "yyyy-MM-dd")
         val writeData: LocalDate? = null
 )
+
 
 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/genreCreate}" th:object="${CreateGenreForm}">
+    <label>内容</label>
+    <input type="text" th:field="*{name}"></span><br>
+
+    <input type="submit" value="作成">
+</form>
+
+</body>
+</html></html>

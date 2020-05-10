@@ -13,6 +13,12 @@
                 <th>Id</th>
                 <th>content</th>
                 <th>reason</th>
+                <th><select id="genre_name" name="genre_name">
+                        <option th:each="data : ${datas}" th:value="${data.id}" th:selected="${data.id == id}" th:inline="text">
+                            [[${data.genre.name}]]
+                        </option>
+                    </select>
+                </th>
             </tr>
             <tr th:each="data: ${datas}">
                 <td th:text="${data.id}"></td>
@@ -25,15 +31,11 @@
             </tr>
 
         </table>
-        <a th:href="@{/new}">link</a>
-    </div>
+        <a th:href="@{/new}">New</a>
+        <a th:href="@{/newgenre}">New Genre</a>
 
 
-
-
-
-
-    <script>
+        <script>
         function check(){
             if(window.confirm("本当に削除してよろしいでしょうか？")){
                 return true
@@ -42,5 +44,9 @@
             }
         }
     </script>
+    </div>
+
+
+
 </body>
 </html>

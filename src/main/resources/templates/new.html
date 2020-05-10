@@ -11,11 +11,18 @@
         <label>理由</label>
         <input type="text" th:field="*{reason}"><br>
         <label>ジャンル</label>
-        <input type="text" th:field="*{genre}"><br>
+        <select th:field="*{genre}">
+            <option th:each="GenreType : ${GenreTypes}" th:value="${GenreType.id}" th:selected="${GenreType.id == id}" th:inline="text">
+                [[${GenreType.name}]]
+            </option>
+        </select>
+        <br>
+
         <label>書いた日</label>
         <input type="date" th:field="*{writeData}"><br>
 
         <input type="submit" value="作成">
     </form>
+
 </body>
 </html>

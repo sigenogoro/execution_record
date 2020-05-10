@@ -7,5 +7,4 @@ import com.example.execution_record.entity.ExecutionLog
 
 @Repository
 interface LogRepository: JpaRepository<ExecutionLog, Long>{
-
 }
