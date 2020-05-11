@@ -24,7 +24,7 @@ class ExecutionRecordController(private val logService: LogService, private val 
     @GetMapping("")
     fun index(model: Model): String {
         val executionHistory = logService.findAll()
-
+        model.addAttribute("GenreTypes", genreService.findAll())
         model.addAttribute("datas", executionHistory)
         return "index"
     }
@@ -53,12 +53,9 @@ class ExecutionRecordController(private val logService: LogService, private val 
 
     @PostMapping("/genreCreate")
     fun genreCreate(@Validated @ModelAttribute("CreateGenreForm") CreateGenreForm: CreateGenreForm,result: BindingResult ,genreGroup: GenreGroup, model: Model): String {
-        if(result.hasErrors()){
-            println("OK")
-            return "newgenre"
-        }
 
         if(genreService.validateGenre(genreGroup.name)) {
+//            できていない！ rejectValue("name","CreateGenreForm.global.message")で出せるようにしたい
             result.rejectValue("name","CreateGenreForm.global.message", "It's already there.")
             return "newgenre"
         }

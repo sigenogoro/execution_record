@@ -2,7 +2,7 @@ package com.example.execution_record.entity
 
 
 
-import com.example.execution_record.CanSplitBySpace
+
 import javax.persistence.Entity
 import javax.persistence.*
 

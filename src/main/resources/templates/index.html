@@ -13,8 +13,8 @@
                 <th>content</th>
                 <th>reason</th>
                 <th><select id="genre_name" name="genre_name">
-                        <option th:each="data : ${datas}" th:value="${data.id}" th:selected="${data.id == id}" th:inline="text">
-                            [[${data.genre.name}]]
+                        <option th:each="GenreType : ${GenreTypes}" th:value="${GenreType.id}" th:selected="${GenreType.id == id}" th:inline="text">
+                            [[${GenreType.name}]]
                         </option>
                     </select>
                 </th>
