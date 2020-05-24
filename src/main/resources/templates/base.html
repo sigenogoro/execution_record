@@ -4,11 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" th:src="@{/js/ExecutionRecord.js}"></script>
+    <link th:href="@{css/ExecutionRecord.css}" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">ExecutionRecord</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">習慣化メモ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ジャンル作成</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="vertical-navbar">
+            <ul class="vertical-navbar-hover">
+                <li class="vertical-navbar-style">
+                    <a href="#">Todoリスト</a>
+                </li>
+                <li class="vertical-navbar-style">
+                    <a href="#">進捗</a>
+                </li>
+                <li class="vertical-navbar-style">
+                    <a href="#">メモ帳</a>
+                </li>
+                <li class="vertical-navbar-style">
+                    <a href="#">ジャンル整理</a>
+                </li>
+            </ul>
+        </div>
 
     </header>
+
     <div layout:fragment="content"></div>
 
     <footer>

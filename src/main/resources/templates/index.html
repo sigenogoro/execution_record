@@ -12,11 +12,14 @@
             <tr>
                 <th>content</th>
                 <th>reason</th>
+                <form th:action="@{/search/}" th:method="get">
                 <th><select id="genre_name" name="genre_name">
                         <option th:each="GenreType : ${GenreTypes}" th:value="${GenreType.id}" th:selected="${GenreType.id == id}" th:inline="text">
-                            [[${GenreType.name}]]
+                                [[${GenreType.name}]]
+                                <td><input type="submit" value="検索"></td>
                         </option>
                     </select>
+                </form>
                 </th>
             </tr>
             <tr th:each="data: ${datas}">

@@ -1,0 +1,36 @@
+.vertical-navbar {
+    float: left;
+    height: 100vh;
+    width: 15%;
+    background-color: rgb(234, 238, 238);
+}
+
+li.vertical-navbar-style a{
+    display: block;
+    text-decoration: none;
+}
+
+
+
+li.vertical-navbar-style{
+    list-style-type:none;
+    padding: 20px 0;
+    font-size: x-large;
+}
+
+li.vertical-navbar-style:hover{
+    background-color: rgb(64, 64, 219);
+}
+
+li.vertical-navbar-style a:hover{
+    color: aliceblue;
+}
+
+
+
+
+
+ul.vertical-navbar-hover{
+    padding-left: 0;
+    padding-top: 50px;
+}
