@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script type="text/javascript" th:src="@{/js/ExecutionRecord.js}"></script>
     <link th:href="@{css/ExecutionRecord.css}" rel="stylesheet" type="text/css" />
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
 
 </head>
 <body>
@@ -20,7 +22,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ジャンル作成</a>
+                        <a class="nav-link" th:href="@{/newgenre}">ジャンル作成</a>
                     </li>
                 </ul>
             </div>
@@ -29,7 +31,7 @@
         <div class="vertical-navbar">
             <ul class="vertical-navbar-hover">
                 <li class="vertical-navbar-style">
-                    <a href="#">Todoリスト</a>
+                    <a th:href="@{/}">Todoリスト</a>
                 </li>
                 <li class="vertical-navbar-style">
                     <a href="#">進捗</a>

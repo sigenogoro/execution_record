@@ -8,44 +8,25 @@
 </head>
 <body>
     <div layout:fragment="content">
-        <table>
-            <tr>
-                <th>content</th>
-                <th>reason</th>
-                <form th:action="@{/search/}" th:method="get">
-                <th><select id="genre_name" name="genre_name">
-                        <option th:each="GenreType : ${GenreTypes}" th:value="${GenreType.id}" th:selected="${GenreType.id == id}" th:inline="text">
-                                [[${GenreType.name}]]
-                                <td><input type="submit" value="検索"></td>
-                        </option>
-                    </select>
-                </form>
-                </th>
-            </tr>
-            <tr th:each="data: ${datas}">
-                <td th:text="${data.content}"></td>
-                <td th:text="${data.reason}"></td>
-                <td><a class="btn btn-primary" th:href="@{/edit/{id}(id=${data.id})}">edit</a></td>
-                <form th:action="@{/delete/{id}(id=${data.id})}" th:method="POST">
-                    <td><input class="btn btn-primary" type="submit" onclick="check()" value="delete"></td>
-                </form>
-            </tr>
+        <div class="content-definition">
+            <div class="card-content">
+                <div th:each="genretype: ${GenreTypes}">
+                    <div class="card">
+                        <p><input class="checkbox-style" type="checkbox">Hello World</p>
+                    </div>
+                    
+                </div>
+            </div>
 
-        </table>
-        <a th:href="@{/new}">New</a>
-        <a th:href="@{/newgenre}">New Genre</a>
+            <div class="footer-bar">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+            </div>
+        </div>
 
-
-        <script>
-        function check(){
-            if(window.confirm("本当に削除してよろしいでしょうか？")){
-                return true
-            }else{
-                return false
-            }
-        }
-    </script>
     </div>
+
 
 
 
